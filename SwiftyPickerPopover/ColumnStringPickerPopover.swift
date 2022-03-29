@@ -137,7 +137,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
         return setButton(button: &clearButton, title:title, font: font, color: color, action: action)
     }
     
-    /// Set button arguments to the targeted button propertoes
+    /// Set button arguments to the targeted button properties
     ///
     /// - Parameters:
     ///   - button: Target button properties
