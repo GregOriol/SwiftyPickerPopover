@@ -22,8 +22,8 @@ public class CountdownPickerPopoverViewController: AbstractPickerPopoverViewCont
     @IBOutlet weak private var picker: UIDatePicker!
     @IBOutlet weak private var clearButton: UIButton!
     
-    override func refrectPopoverProperties(){
-        super.refrectPopoverProperties()
+    override func reflectPopoverProperties(){
+        super.reflectPopoverProperties()
         if #available(iOS 11.0, *) { }
         else {
             navigationItem.leftBarButtonItem = nil

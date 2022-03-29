@@ -35,8 +35,8 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
     }
     
     /// Make the popover properties reflect on this view controller
-    override func refrectPopoverProperties(){
-        super.refrectPopoverProperties()
+    override func reflectPopoverProperties(){
+        super.reflectPopoverProperties()
         
         // Set up cancel button
         if #available(iOS 11.0, *) {}

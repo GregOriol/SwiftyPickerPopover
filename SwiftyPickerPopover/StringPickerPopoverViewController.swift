@@ -29,8 +29,8 @@ public class StringPickerPopoverViewController: AbstractPickerPopoverViewControl
     }
 
     /// Make the popover properties reflect on this view controller
-    override func refrectPopoverProperties(){
-        super.refrectPopoverProperties()
+    override func reflectPopoverProperties(){
+        super.reflectPopoverProperties()
         // Select row if needed
         picker?.selectRow(popover.selectedRow, inComponent: 0, animated: true)
 

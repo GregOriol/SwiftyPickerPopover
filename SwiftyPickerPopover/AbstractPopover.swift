@@ -232,7 +232,7 @@ open class AbstractPopover: NSObject {
     
     /// Reload the popover with the latest properties. 
     open func reload() {
-        (contentViewController as? AbstractPickerPopoverViewController)?.refrectPopoverProperties()
+        (contentViewController as? AbstractPickerPopoverViewController)?.reflectPopoverProperties()
     }
     
     /// Configure navigationController
