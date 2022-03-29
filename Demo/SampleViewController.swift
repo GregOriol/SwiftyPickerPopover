@@ -164,6 +164,21 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
             })
             .appear(originView: sender, baseViewController: self)
     }
+
+    @IBAction func durationButton(_ sender: UIButton) {
+        // DurationPickerPopover appears:
+        DurationPickerPopover(title: "DurationPicker", labels: (h: "hr", m: "mn", s: "sec"), value: 90)
+            .setValueChange(action: { _, components, value in
+                print("current interval h:\(components.h) m:\(components.m) s:\(components.s) - \(value)")
+            })
+            .setDoneButton(action: { popover, components, value in
+                print("current interval h:\(components.h) m:\(components.m) s:\(components.s) - \(value)")} )
+            .setCancelButton(action: { _, _, _ in print("cancel")})
+//            .setClearButton(action: { popover, timeInterval in print("Clear")
+//                popover.setSelectedTimeInterval(TimeInterval()).reload()
+//            })
+            .appear(originView: sender, baseViewController: self)
+    }
     
     @IBAction func columnsString(_ sender: UIButton) {
         //ColumnStringPickerPopover appears.
