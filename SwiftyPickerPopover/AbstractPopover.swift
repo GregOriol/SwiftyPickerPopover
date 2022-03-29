@@ -47,6 +47,8 @@ open class AbstractPopover: NSObject {
     private(set) var isAllowedOutsideTappingDismissing: Bool?
     
     private(set) var isEnabledDimmedBackgroundView: Bool?
+
+    private(set) var hasTitle: Bool = true
     
     override public init() {
         //Get a string as stroyboard name from this class name.
@@ -96,6 +98,11 @@ open class AbstractPopover: NSObject {
     
     open func setDimmedBackgroundView(enabled: Bool) -> Self {
         isEnabledDimmedBackgroundView = enabled
+        return self
+    }
+
+    open func setHasTitle(hasTitle: Bool) -> Self {
+        self.hasTitle = hasTitle
         return self
     }
     
