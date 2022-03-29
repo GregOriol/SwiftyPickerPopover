@@ -101,7 +101,7 @@ open class AbstractPopover: NSObject {
         return self
     }
 
-    open func setHasTitle(hasTitle: Bool) -> Self {
+    open func setHasTitle(_ hasTitle: Bool) -> Self {
         self.hasTitle = hasTitle
         return self
     }
