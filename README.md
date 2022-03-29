@@ -210,9 +210,8 @@ ColumnStringPickerPopover(title: "Columns Strings",
                                   selectedRows: [0,0], columnPercents: [0.5, 0.5])
         .setDoneButton(action: { popover, selectedRows, selectedStrings in print("selected rows \(selectedRows) strings \(selectedStrings)")})
         .setCancelButton(action: {_, _, _ in print("cancel")})
-        .setFontSize(14)
+        .setFontSizes([14, 16])
         .appear(originView: sender, baseViewController: self)
-)
 ```
 
 #### DatePickerPopover
