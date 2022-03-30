@@ -24,9 +24,7 @@ open class AbstractPickerPopoverViewController: UIViewController {
     func reflectPopoverProperties() {
         title = anyPopover.title
 
-        if !anyPopover.hasTitle {
-            navigationController?.navigationBar.isHidden = true
-        }
+        navigationController?.navigationBar.isHidden = anyPopover.navigationBarIsHidden
         
         // Change size if needed
         if let width = anyPopover.size?.width {
