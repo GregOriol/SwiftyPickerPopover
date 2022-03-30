@@ -17,7 +17,7 @@ class TextFieldCell: UITableViewCell {
         textLabel?.text = "TextFieldCell"
         textField?.text = text
     }
-    
+
     @IBAction func onEditingDidBegin(_ sender: UITextField) {
         DatePickerPopover(title: "From Cell")
         .appear(originView: sender, baseViewController: delegate)

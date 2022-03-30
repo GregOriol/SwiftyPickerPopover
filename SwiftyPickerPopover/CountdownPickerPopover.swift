@@ -6,7 +6,7 @@
 //
 
 public class CountdownPickerPopover: AbstractPopover {
-    
+
     // MARK: Types
     /// Type of choice value
     public typealias ItemType = TimeInterval
@@ -32,7 +32,7 @@ public class CountdownPickerPopover: AbstractPopover {
     private(set) var selectedTimeInterval:ItemType = ItemType()
 
     // MARK: - Initializer
-    
+
     /// Initialize a Popover with the following argument.
     ///
     /// - Parameter title: Title for navigation bar.
@@ -42,7 +42,7 @@ public class CountdownPickerPopover: AbstractPopover {
     }
 
     // MARK: - Propery setter
-    
+
     /// Set selected time interval
     ///
     /// - Parameter interval: Value for picker.
@@ -63,7 +63,7 @@ public class CountdownPickerPopover: AbstractPopover {
     public func setDoneButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
         return setButton(button: &doneButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// Set Cancel button properties.
     ///
     /// - Parameters:
@@ -75,7 +75,7 @@ public class CountdownPickerPopover: AbstractPopover {
     public func setCancelButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
         return setButton(button: &cancelButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// - Parameters:
     ///   - title: Title for the button. Omissible.
     ///   - font: Button title font. Omissible.
@@ -108,7 +108,7 @@ public class CountdownPickerPopover: AbstractPopover {
         button.action = action
         return self
     }
-    
+
     /// Set an action for each value change done by user
     ///
     /// - Parameters:

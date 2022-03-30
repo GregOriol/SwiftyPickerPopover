@@ -10,10 +10,10 @@ import UIKit
 import SwiftyPickerPopover
 
 class SampleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
     // for keeping selectedRow
     private var selectedRow: Int = 0
-    
+
     @IBAction func tappedStringPickerButton(_ sender: UIButton) {
         /// Replace a string with the string to be display.
         let displayStringFor:((String?)->String?)? = { string in
@@ -31,7 +31,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
             return nil
         }
-        
+
         /// Create StringPickerPopover:
         let p = StringPickerPopover(title: "StringPicker", choices: ["value 1","value 2","value 3"])
             .setDisplayStringFor(displayStringFor)
@@ -45,7 +45,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
                 action: { popover, selectedRow, selectedString in
                     print("done row \(selectedRow) \(selectedString)")
                     self.selectedRow = selectedRow
-                    
+
             })
             .setCancelButton(action: {_, _, _ in
                 print("cancel") })
@@ -53,7 +53,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
         p.appear(originView: sender, baseViewController: self)
         p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
     }
-    
+
     @IBAction func didTapStringPickerWithImageButton(_ sender: UIButton) {
         /// StringPickerPopover with image:
         let p = StringPickerPopover(title: "with image", choices: ["value 1","value 2",""])
@@ -73,7 +73,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
             .setDimmedBackgroundView(enabled: true)
         p.appear(originView: sender, baseViewController: self)
     }
-    
+
     @IBAction func didTapStringPickerClearableButton(_ sender: UIButton) {
         /// StringPickerPopover Clearable:
         let p = StringPickerPopover(title: "Clearable", choices: ["value 1","value 2","value3"])
@@ -91,7 +91,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
             })
         p.appear(originView: sender, baseViewController: self)
     }
-    
+
     @IBAction func didTapStringPickerWithTextField(_ sender: UITextField) {
         StringPickerPopover(title: "TextField", choices: ["","Text 1", "Text 2", "Text 3"])
         .setValueChange(action: { _, _, selectedString in
@@ -100,9 +100,9 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
         .setDoneButton(action: { popover, selectedRow, selectedString in
             sender.text = selectedString
         })
-        .appear(originView: sender, baseViewController: self)        
+        .appear(originView: sender, baseViewController: self)
     }
-    
+
     @IBAction func tappendDatePickerButton(_ sender: UIButton) {
         /// DatePickerPopover appears:
         DatePickerPopover(title: "DatePicker")
@@ -115,7 +115,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
             .setCancelButton(action: { _, _ in print("cancel")})
             .appear(originView: sender, baseViewController: self)
     }
-    
+
     @IBAction func tappendDatePickerCanClearButton(_ sender: UIButton) {
         /// DatePickerPopover appears:
         let p = DatePickerPopover(title: "Clearable DatePicker")
@@ -135,7 +135,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
         p.appear(originView: sender, baseViewController: self)
         p.disappearAutomatically(after: 3.0)
     }
-    
+
     @IBAction func tappendDatePickerTime5MinIntButton(_ sender: UIButton) {
         // DatePickerPopover appears:
         DatePickerPopover(title: "DatePicker .time 5minInt.")
@@ -179,7 +179,7 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
 //            })
             .appear(originView: sender, baseViewController: self)
     }
-    
+
     @IBAction func columnsString(_ sender: UIButton) {
         //ColumnStringPickerPopover appears.
         ColumnStringPickerPopover(title: "Columns Strings",
@@ -201,18 +201,18 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     //CollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        
+
         let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         let label = theCell.contentView.viewWithTag(1) as! UILabel
         label.text = (indexPath as NSIndexPath).row.description
-        
+
         return theCell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+
         let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        
+
         //StringPickerPopover appears from the cell of collectionView.
         let p = StringPickerPopover(title: "Cell "+(indexPath as NSIndexPath).row.description, choices: ["value 1","value 2","value 3"])
         .setSelectedRow(1)
@@ -223,14 +223,14 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
             print("done row \(selectedRow) \(selectedString)")
         })
         .setCancelButton(title:"👎", action: { _,_,_ in print("cancel")} )
-        
+
         p.appear(originView: theCell, baseViewWhenOriginViewHasNoSuperview: collectionView, baseViewController: self)
-        
+
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }

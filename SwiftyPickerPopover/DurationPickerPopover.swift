@@ -13,9 +13,9 @@
 
 /// DurationPickerPopover has 3 UIPickerView separated by labels.
 public class DurationPickerPopover: AbstractPopover {
-    
+
     // MARK: Types
-    
+
     /// Type of choice value
     public typealias ItemType = String
     /// Popover type
@@ -29,7 +29,7 @@ public class DurationPickerPopover: AbstractPopover {
 
     // MARK: Constants
     let kValueForCleared: ItemType = ""
-    
+
     // MARK: - Properties
 
     /// Labels
@@ -46,7 +46,7 @@ public class DurationPickerPopover: AbstractPopover {
 
     /// Convert a raw value to the string for displaying it
 //    private(set) var displayStringFor: DisplayStringForType?
-    
+
     /// Done button parameters
     private(set) var doneButton: ButtonParameterType = (title: "Done".localized, font: nil, color: nil, action: nil)
     /// Cancel button parameters
@@ -57,7 +57,7 @@ public class DurationPickerPopover: AbstractPopover {
     private(set) var valueChangeAction: ActionHandlerType?
 
     // MARK: - Initializer
-    
+
     /// Initialize a Popover with the following arguments.
     ///
     /// - Parameters:
@@ -67,7 +67,7 @@ public class DurationPickerPopover: AbstractPopover {
     ///   - columnPercent: Rate of each column of picker
     public init(title: String?, labels: (h: String, m: String, s: String) = (h: "h", m: "m", s: "s"), value: Int){
         super.init()
-        
+
         // Set parameters
         self.title = title
         self.labels = labels
@@ -75,7 +75,7 @@ public class DurationPickerPopover: AbstractPopover {
     }
 
     // MARK: - Propery setter
-    
+
 //    /// Set displayStringFor closures
 //    ///
 //    /// - Parameter displayStringFor: Rules for converting choice values to display strings.
@@ -96,7 +96,7 @@ public class DurationPickerPopover: AbstractPopover {
     public func setDoneButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self {
         return setButton(button: &doneButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// Set cancel button properties.
     ///
     /// - Parameters:
@@ -124,7 +124,7 @@ public class DurationPickerPopover: AbstractPopover {
 //        }
 //        return setButton(button: &clearButton, title:title, font: font, color: color, action: action)
 //    }
-    
+
     /// Set button arguments to the targeted button properties
     ///
     /// - Parameters:
@@ -147,7 +147,7 @@ public class DurationPickerPopover: AbstractPopover {
         button.action = action
         return self
     }
-    
+
     /// Set an action for each value change done by user
     ///
     /// - Parameters:
@@ -157,7 +157,7 @@ public class DurationPickerPopover: AbstractPopover {
         valueChangeAction = action
         return self
     }
-    
+
 //    /// Set fonts
 //    public func setFonts(_ fonts:[UIFont?]) ->Self {
 //        self.fonts = fonts

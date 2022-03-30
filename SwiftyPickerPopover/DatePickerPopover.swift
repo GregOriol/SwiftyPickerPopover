@@ -7,9 +7,9 @@
 //
 
 public class DatePickerPopover: AbstractPopover {
-    
+
     // MARK: Types
-    
+
     /// Type of choice value
     public typealias ItemType = Date
     /// Popover type
@@ -40,9 +40,9 @@ public class DatePickerPopover: AbstractPopover {
     /// Selected date
     private(set) var selectedDate: ItemType = ItemType()
     private(set) var locale: Locale = Locale.current
-    
+
     // MARK: - Initializer
-    
+
     /// Initialize a Popover with the following argument.
     ///
     /// - Parameter title: Title for navigation bar.
@@ -50,7 +50,7 @@ public class DatePickerPopover: AbstractPopover {
         super.init()
         self.title = title
     }
-    
+
     // MARK: - Propery setter
 
     /// Set selected date
@@ -61,7 +61,7 @@ public class DatePickerPopover: AbstractPopover {
         self.selectedDate = date
         return self
     }
-    
+
     /// Set date mode of picker
     ///
     /// - Parameter dateMode: UIDatePickerMode of picker.
@@ -70,7 +70,7 @@ public class DatePickerPopover: AbstractPopover {
         self.dateMode_ = dateMode
         return self
     }
-    
+
     /// Set minimum date
     ///
     /// - Parameter minimumDate: Minimum value
@@ -88,7 +88,7 @@ public class DatePickerPopover: AbstractPopover {
         self.maximumDate = maximumDate
         return self
     }
-    
+
     /// Set minute interval
     ///
     /// - Parameter minimumDate: Minimum value
@@ -97,7 +97,7 @@ public class DatePickerPopover: AbstractPopover {
         self.minuteInterval = minuteInterval
         return self
     }
-    
+
     /// Set locale
     ///
     /// - Parameter localeIdentifier: The locale identifier which is used for display date picker
@@ -106,7 +106,7 @@ public class DatePickerPopover: AbstractPopover {
         let locale = Locale(identifier: localeIdentifier)
         return setLocale(locale)
     }
-    
+
     /// Set locale
     ///
     /// - Parameter locale: Locale which is used for display date picker
@@ -127,7 +127,7 @@ public class DatePickerPopover: AbstractPopover {
     public func setDoneButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
         return setButton(button: &doneButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// Set Cancel button properties
     ///
     /// - Parameters:
@@ -139,7 +139,7 @@ public class DatePickerPopover: AbstractPopover {
     public func setCancelButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
         return setButton(button: &cancelButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// Set Clear button properties
     ///
     /// - Parameters:
@@ -151,7 +151,7 @@ public class DatePickerPopover: AbstractPopover {
     public func setClearButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
         return setButton(button: &clearButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// Set button arguments to the targeted button properties
     ///
     /// - Parameters:
@@ -174,7 +174,7 @@ public class DatePickerPopover: AbstractPopover {
         button.action = action
         return self
     }
-    
+
     /// Set an action for each value change done by user
     ///
     /// - Parameters:
@@ -183,5 +183,5 @@ public class DatePickerPopover: AbstractPopover {
     public func setValueChange(action: ActionHandlerType?)->Self{
         valueChangeAction = action
         return self
-    }    
+    }
 }

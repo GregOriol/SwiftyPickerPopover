@@ -10,7 +10,7 @@
 public class StringPickerPopover: AbstractPopover {
 
     // MARK: Types
-    
+
     /// Type of choice value
     public typealias ItemType = String
     /// Popover type
@@ -26,21 +26,21 @@ public class StringPickerPopover: AbstractPopover {
     let kValueForCleared: ItemType = ""
 
     // MARK: - Properties
-    
+
     /// Choice array
     private(set) var choices: [ItemType] = []
     /// Array of image to attach to a choice
     private(set) var images: [UIImage?]?
-    
+
     /// Font
     private(set) var font: UIFont?
     private(set) var fontColor: UIColor = .black
     private(set) var fontSize: CGFloat?
     let kDefaultFontSize: CGFloat = 14
-    
+
     /// Convert a raw value to the string for displaying it
     private(set) var displayStringFor: DisplayStringForType?
-    
+
     /// Done button parameters
     private(set) var doneButton: ButtonParameterType = (title: "Done".localized, font: nil, color: nil, action: nil)
     /// Cancel button parameters
@@ -50,13 +50,13 @@ public class StringPickerPopover: AbstractPopover {
 
     /// Action for picker value change
     private(set) var valueChangeAction: ActionHandlerType?
-    
+
     /// Selected row
     private(set) var selectedRow: Int = 0
 
     /// Row height
     private(set) var rowHeight: CGFloat = 44
-    
+
     // MARK: - Initializer
 
     /// Initialize a Popover with the following arguments.
@@ -66,7 +66,7 @@ public class StringPickerPopover: AbstractPopover {
     ///   - choices: Options for picker.
     public init(title: String?, choices: [ItemType]) {
         super.init()
-        
+
         // Set parameters
         self.title = title
         self.choices = choices
@@ -80,12 +80,12 @@ public class StringPickerPopover: AbstractPopover {
         self.font = font
         return self
     }
-    
+
     public func setFontSize(_ size: CGFloat) -> Self {
         self.fontSize = size
         return self
     }
-    
+
     /// Set pickerFontColor
     ///
     /// - Parameter colorName: UIColor to change picker ArrayColor
@@ -94,7 +94,7 @@ public class StringPickerPopover: AbstractPopover {
         self.fontColor = color
         return self
     }
-    
+
     // MARK: - Propery setter
 
     /// Set image names
@@ -119,7 +119,7 @@ public class StringPickerPopover: AbstractPopover {
         self.images = images
         return self
     }
-    
+
     /// Set selected row
     ///
     /// - Parameter row: Selected row on picker
@@ -137,7 +137,7 @@ public class StringPickerPopover: AbstractPopover {
         self.rowHeight = height
         return self
     }
-    
+
     /// Set displayStringFor closure
     ///
     /// - Parameter displayStringFor: Rules for converting choice values to display strings.
@@ -146,7 +146,7 @@ public class StringPickerPopover: AbstractPopover {
         self.displayStringFor = displayStringFor
         return self
     }
-    
+
     /// Set done button properties
     ///
     /// - Parameters:
@@ -165,13 +165,13 @@ public class StringPickerPopover: AbstractPopover {
     /// - Parameters:
     ///   - title: Title for the bar button item. Omissible. If it is nil or not specified, then localized "Cancel" will be used.
     ///   - font: Button title font for .normal. Omissible.
-    ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor. 
+    ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
     ///   - action: Action to be performed before the popover disappeared.The popover, Selected row, Selected value.
     /// - Returns: Self
     public func setCancelButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
         return setButton(button: &cancelButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// - Parameters:
     ///   - title: Title for the button. Omissible.
     ///   - font: Button title font. Omissible.
@@ -185,7 +185,7 @@ public class StringPickerPopover: AbstractPopover {
         }
         return setButton(button: &clearButton, title:title, font: font, color: color, action: action)
     }
-    
+
     /// Set button arguments to the targeted button properties
     ///
     /// - Parameters:
@@ -208,7 +208,7 @@ public class StringPickerPopover: AbstractPopover {
         button.action = action
         return self
     }
-    
+
     /// Set an action for each value change done by user
     ///
     /// - Parameters:

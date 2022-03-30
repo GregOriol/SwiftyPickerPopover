@@ -10,13 +10,13 @@
 
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-//  Modified by Yuta Hoshino on 2017/07/24. 
+//  Modified by Yuta Hoshino on 2017/07/24.
 
 /// ColumnStringPickerPopover has an UIPickerView of multiple columns.
 public class ColumnStringPickerPopover: AbstractPopover {
-    
+
     // MARK: Types
-    
+
     /// Type of choice value
     public typealias ItemType = String
     /// Popover type
@@ -30,7 +30,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
 
     // MARK: Constants
     let kValueForCleared: ItemType = ""
-    
+
     // MARK: - Properties
 
     /// Choice array. Nest.
@@ -48,7 +48,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
 
     /// Convert a raw value to the string for displaying it
     private(set) var displayStringFor: DisplayStringForType?
-    
+
     /// Done button parameters
     private(set) var doneButton: ButtonParameterType = (title: "Done".localized, font: nil, color: nil, action: nil)
     /// Cancel button parameters
@@ -59,7 +59,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
     private(set) var valueChangeAction: ActionHandlerType?
 
     // MARK: - Initializer
-    
+
     /// Initialize a Popover with the following arguments.
     ///
     /// - Parameters:
@@ -69,7 +69,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
     ///   - columnPercent: Rate of each column of picker
     public init(title: String?, choices:[[ItemType]], selectedRows:[Int], columnPercents:[Float]){
         super.init()
-        
+
         // Set parameters
         self.title = title
         self.choices = choices
@@ -78,7 +78,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
     }
 
     // MARK: - Propery setter
-    
+
     /// Set selected rows
     ///
     /// - Parameter row: Selected rows of picker
@@ -87,7 +87,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
         self.selectedRows = rows
         return self
     }
-    
+
     /// Set displayStringFor closures
     ///
     /// - Parameter displayStringFor: Rules for converting choice values to display strings.
@@ -108,7 +108,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
     public func setDoneButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self {
         return setButton(button: &doneButton, title: title, font: font, color: color, action: action)
     }
-    
+
     /// Set cancel button properties.
     ///
     /// - Parameters:
@@ -136,7 +136,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
         }
         return setButton(button: &clearButton, title:title, font: font, color: color, action: action)
     }
-    
+
     /// Set button arguments to the targeted button properties
     ///
     /// - Parameters:
@@ -159,7 +159,7 @@ public class ColumnStringPickerPopover: AbstractPopover {
         button.action = action
         return self
     }
-    
+
     /// Set an action for each value change done by user
     ///
     /// - Parameters:
@@ -169,19 +169,19 @@ public class ColumnStringPickerPopover: AbstractPopover {
         valueChangeAction = action
         return self
     }
-    
+
     /// Set fonts
     public func setFonts(_ fonts:[UIFont?]) ->Self {
         self.fonts = fonts
         return self
     }
-    
+
     /// Set pickerFontColors
     public func setFontColors(_ colors:[UIColor?]) ->Self {
         self.fontColors = colors
         return self
     }
-    
+
     /// Set font sizes
     public func setFontSizes(_ fontSizes:[CGFloat?])->Self{
         self.fontSizes = fontSizes

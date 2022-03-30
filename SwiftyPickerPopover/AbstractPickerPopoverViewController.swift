@@ -11,21 +11,22 @@ import UIKit
 
 /// AbstractPopover's view controller
 open class AbstractPickerPopoverViewController: UIViewController {
-    
+
     /// AbstractPopover
     var anyPopover: AbstractPopover!
-    
+
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         reflectPopoverProperties()
     }
-    
+
     /// Make the popover property reflect on the popover
     func reflectPopoverProperties() {
         title = anyPopover.title
 
         navigationController?.navigationBar.isHidden = anyPopover.navigationBarIsHidden
-        
+
         // Change size if needed
         if let width = anyPopover.size?.width {
             navigationController?.preferredContentSize.width = width
@@ -41,7 +42,7 @@ extension AbstractPickerPopoverViewController: UIPopoverPresentationControllerDe
     open func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
-    
+
     open func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
         guard let allowed = anyPopover.isAllowedOutsideTappingDismissing else {
             return true

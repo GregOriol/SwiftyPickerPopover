@@ -21,42 +21,42 @@ open class AbstractPopover: NSObject {
 
     /// Popover title
     var title: String?
-    
+
     /// Base view controller
     private(set) weak var baseViewController: UIViewController?
     /// Permitted arrow directions
     private(set) var permittedArrowDirections:UIPopoverArrowDirection = .any
-    
+
     /// - Item to be executed after the specified time
     /// - The time
     /// - Process to be executed after performing the DispatchWorkItem
     private(set) var disappearAutomaticallyItems: (dispatchWorkItem: DispatchWorkItem?, seconds: Double?, completion: VoidHandlerType?)
-    
+
     /// ViewController in charge of content in the popover
     private(set) weak var contentViewController: AnyObject?
     /// Background color of contentViewController
     private(set) var backgroundColor: UIColor?
     /// tintColor of contentViewController
     private(set) var tintColor: UIColor?
-    
+
     /// Size of th popover
     private(set) var size:(width: CGFloat?, height: CGFloat?)?
-    
+
     private(set) var cornerRadius: CGFloat?
-    
+
     private(set) var isAllowedOutsideTappingDismissing: Bool?
-    
+
     private(set) var isEnabledDimmedBackgroundView: Bool?
 
     private(set) var navigationBarIsHidden: Bool = false
-    
+
     override public init() {
         //Get a string as stroyboard name from this class name.
         storyboardName = String(describing: type(of: self))
     }
-    
+
     // MARK: - Set permitted arr setter
-    
+
     /// Set permitted arrow directions
     ///
     /// - Parameter permittedArrowDirections: Permitted arrow directions
@@ -65,7 +65,7 @@ open class AbstractPopover: NSObject {
         self.permittedArrowDirections = permittedArrowDirections
         return self
     }
-    
+
     /// Set arrow color
     ///
     /// - Parameter color: Arrow color. Specify the color of viewController.backgroundColor
@@ -85,17 +85,17 @@ open class AbstractPopover: NSObject {
         size = (width: width, height: height)
         return self
     }
-    
+
     open func setCornerRadius(_ radius: CGFloat) -> Self {
         cornerRadius = radius
         return self
     }
-    
+
     open func setOutsideTapDismissing(allowed: Bool = true) -> Self {
         isAllowedOutsideTappingDismissing = allowed
         return self
     }
-    
+
     open func setDimmedBackgroundView(enabled: Bool) -> Self {
         isEnabledDimmedBackgroundView = enabled
         return self
@@ -105,9 +105,9 @@ open class AbstractPopover: NSObject {
         self.navigationBarIsHidden = navigationBarIsHidden
         return self
     }
-    
+
     // MARK: - Popover display
-    
+
     /// Display the popover.
     ///
     /// - Parameter
@@ -115,14 +115,14 @@ open class AbstractPopover: NSObject {
     ///   - baseViewWhenOriginViewHasNoSuperview: SourceView of popoverPresentationController. Omissible. This view will be used instead of originView.superView when it is nil.
     ///   - baseViewController: Base viewController
     ///   - completion: Action to be performed after the popover appeared. Omissible.
-    
+
     open func appear(barButtonItem: UIBarButtonItem, baseViewWhenOriginViewHasNoSuperview:  UIView? = nil, baseViewController: UIViewController, completion: VoidHandlerType? = nil) {
         guard let originView = barButtonItem.value(forKey: "view") as? UIView else {
             return
         }
         appear(originView: originView, baseViewWhenOriginViewHasNoSuperview: baseViewWhenOriginViewHasNoSuperview, baseViewController: baseViewController, completion: completion)
     }
-    
+
     /// Display the popover.
     ///
     /// - Parameter
@@ -130,27 +130,27 @@ open class AbstractPopover: NSObject {
     ///   - baseViewWhenOriginViewHasNoSuperview: SourceView of popoverPresentationController. Omissible. This view will be used instead of originView.superView when it is nil.
     ///   - baseViewController: Base viewController
     ///   - completion: Action to be performed after the popover appeared. Omissible.
-    
+
     open func appear(originView: UIView, baseViewWhenOriginViewHasNoSuperview: UIView? = nil, baseViewController: UIViewController, completion: VoidHandlerType? = nil) {
         // create navigationController
         guard let navigationController = configureNavigationController(storyboardName: storyboardName, originView: originView, baseViewWhenOriginViewHasNoSuperview: baseViewWhenOriginViewHasNoSuperview, baseViewController: baseViewController, permittedArrowDirections: permittedArrowDirections ) else {
             return
         }
         self.baseViewController = baseViewController
-        
+
         // configure StringPickerPopoverViewController
         let contentVC = configureContentViewController(navigationController: navigationController)
         navigationController.popoverPresentationController?.delegate = contentVC
-        
+
         let color = backgroundColor ?? baseViewController.navigationController?.navigationBar.barTintColor ?? baseViewController.view.backgroundColor
         navigationController.navigationBar.barTintColor = color
         navigationController.popoverPresentationController?.backgroundColor =  color
-        
+
         tintColor = baseViewController.view.tintColor
-        
+
         // dimmed backgorund view
         addDimmedBackgroundViewIfNeeded(baseViewController)
-        
+
         // show popover
         baseViewController.present(navigationController, animated: true, completion: { [weak self] in
             guard let `self` = self else {
@@ -162,7 +162,7 @@ open class AbstractPopover: NSObject {
             completion?()
         })
     }
-    
+
     private func addDimmedBackgroundViewIfNeeded(_ baseViewController: UIViewController) {
         if let isEnabled = isEnabledDimmedBackgroundView, isEnabled {
             let dimmedView = UIView(frame: UIScreen.main.bounds)
@@ -174,7 +174,7 @@ open class AbstractPopover: NSObject {
             }
         }
     }
-    
+
     /// Configure contentViewController of popover
     ///
     /// - Parameter navigationController: Source navigationController.
@@ -187,7 +187,7 @@ open class AbstractPopover: NSObject {
         }
         return nil
     }
-    
+
     /// Close the popover
     ///
     /// - Parameter completion: Action to be performed after the popover disappeared. Omissible.
@@ -195,7 +195,7 @@ open class AbstractPopover: NSObject {
         removeDimmedView()
         baseViewController?.dismiss(animated: false, completion: completion)
     }
-    
+
     public func removeDimmedView() {
         if let parentView = baseViewController?.navigationController?.view ?? baseViewController?.view, let dimmedView = parentView.subviews.filter({$0.accessibilityIdentifier == kDimmedViewIdentifer}).first {
             UIView.animate(withDuration: 0.4, animations: {
@@ -205,7 +205,7 @@ open class AbstractPopover: NSObject {
             })
         }
     }
-    
+
     /// Close the popover automatically after the specified seconds.
     ///
     /// - Parameters:
@@ -215,7 +215,7 @@ open class AbstractPopover: NSObject {
         // automatically hide the popover
         disappearAutomaticallyItems.seconds = seconds
         disappearAutomaticallyItems.completion = completion
-        
+
         disappearAutomaticallyItems.dispatchWorkItem?.cancel()
         disappearAutomaticallyItems.dispatchWorkItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + seconds) { [weak self] in
             guard let `self` = self else {
@@ -227,7 +227,7 @@ open class AbstractPopover: NSObject {
             self.disappearAutomaticallyItems = (dispatchWorkItem: nil, seconds: nil, completion: nil)
         }
     }
-    
+
     /// Update the started time of disappearAutomatically().
     func redoDisappearAutomatically() {
         //Redo disapperAutomatically()
@@ -235,13 +235,13 @@ open class AbstractPopover: NSObject {
             disappearAutomatically(after: seconds, completion: disappearAutomaticallyItems.completion)
         }
     }
-    
-    
-    /// Reload the popover with the latest properties. 
+
+
+    /// Reload the popover with the latest properties.
     open func reload() {
         (contentViewController as? AbstractPickerPopoverViewController)?.reflectPopoverProperties()
     }
-    
+
     /// Configure navigationController
     ///
     /// - Parameters:
@@ -260,11 +260,11 @@ open class AbstractPopover: NSObject {
         }
 
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
-        
+
         guard let navigationController = storyboard.instantiateInitialViewController() as? UINavigationController else {
             return nil
         }
-        
+
         return configureNavigationController(navigationController: navigationController, originView: originView, baseViewWhenOriginViewHasNoSuperview: baseViewWhenOriginViewHasNoSuperview, baseViewController: baseViewController, permittedArrowDirections: permittedArrowDirections)
     }
 	

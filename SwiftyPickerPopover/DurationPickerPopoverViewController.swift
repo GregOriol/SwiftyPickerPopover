@@ -7,19 +7,19 @@
 //
 //
 /*  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- 
+
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
 public class DurationPickerPopoverViewController: AbstractPickerPopoverViewController {
 
     // MARK: Types
-    
+
     /// Popover type
     typealias PopoverType = DurationPickerPopover
 
     // MARK: Properties
-    
+
     /// Popover
     private var popover: PopoverType! { return anyPopover as? PopoverType }
 
@@ -31,7 +31,7 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
     @IBOutlet fileprivate weak var minutesLabel: UILabel!
     @IBOutlet fileprivate weak var secondsPickerView: UIPickerView!
     @IBOutlet fileprivate weak var secondsLabel: UILabel!
-    
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,11 +42,11 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         secondsPickerView.delegate = self
         secondsPickerView.dataSource = self
     }
-    
+
     /// Make the popover properties reflect on this view controller
     override func reflectPopoverProperties(){
         super.reflectPopoverProperties()
-        
+
         // Set up cancel button
         if #available(iOS 11.0, *) {}
         else {
@@ -75,21 +75,21 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         minutesPickerView.selectRow(components.m, inComponent: 0, animated: false)
         secondsPickerView.selectRow(components.s, inComponent: 0, animated: false)
     }
-    
+
     /// Action when tapping done button
     ///
     /// - Parameter sender: Done button
     @IBAction func tappedDone(_ sender: AnyObject? = nil) {
         tapped(button: popover.doneButton)
     }
-    
+
     /// Action when tapping cancel button
     ///
     /// - Parameter sender: Cancel button
     @IBAction func tappedCancel(_ sender: AnyObject? = nil) {
         tapped(button: popover.cancelButton)
     }
-    
+
     private func tapped(button: DurationPickerPopover.ButtonParameterType?) {
         let h = hoursPickerView.selectedRow(inComponent: 0)
         let m = minutesPickerView.selectedRow(inComponent: 0)
@@ -100,7 +100,7 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         popover.removeDimmedView()
         dismiss(animated: false)
     }
-    
+
 //    @IBAction func tappedClear(_ sender: AnyObject? = nil) {
 //        // Select row 0 in each componet
 //        for componet in 0..<picker.numberOfComponents {
@@ -110,14 +110,14 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
 //        popover.clearButton.action?(popover, popover.selectedRows, selectedValues())
 //        popover.redoDisappearAutomatically()
 //    }
-    
+
 //    private func enableClearButtonIfNeeded() {
 //        guard !clearButton.isHidden else {
 //            return
 //        }
 //        clearButton.isEnabled = selectedValues().filter({ $0 != popover.kValueForCleared}).count > 0
 //    }
-    
+
     /// Action to be executed after the popover disappears
     ///
     /// - Parameter popoverPresentationController: UIPopoverPresentationController
@@ -141,7 +141,7 @@ extension DurationPickerPopoverViewController: UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
-    
+
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == hoursPickerView {
             return 12
@@ -153,12 +153,12 @@ extension DurationPickerPopoverViewController: UIPickerViewDataSource {
 
         return 0
     }
-    
+
 //    public func pickerView(_ pickerView: UIPickerView,
 //                           widthForComponent component: Int) -> CGFloat {
 //        return pickerView.frame.size.width * CGFloat(popover.columnPercents[component])
 //    }
-    
+
 //    private func selectedValue(component: Int, row: Int) -> DurationPickerPopover.ItemType? {
 //        guard let items = popover.choices[safe: component],
 //            let selectedValue = items[safe: row] else {
@@ -166,7 +166,7 @@ extension DurationPickerPopoverViewController: UIPickerViewDataSource {
 //        }
 //        return popover.displayStringFor?(selectedValue) ?? selectedValue
 //    }
-    
+
 //    private func selectedValues() -> [DurationPickerPopover.ItemType] {
 //        var result = [DurationPickerPopover.ItemType]()
 //        popover.selectedRows.enumerated().forEach {
@@ -188,7 +188,7 @@ extension DurationPickerPopoverViewController: UIPickerViewDelegate {
         label.textAlignment = .right
         return label
     }
-    
+
 //    private func getAttributedText(_ text: String?, component: Int) -> NSAttributedString? {
 //        guard let text = text else {
 //            return nil
@@ -206,7 +206,7 @@ extension DurationPickerPopoverViewController: UIPickerViewDelegate {
 //        let color: UIColor = popover.fontColors?[component] ?? popover.kDefaultFontColor
 //        return NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: color])
 //    }
-    
+
     public func pickerView(_ pickerView: UIPickerView,
                            didSelectRow row: Int,
                            inComponent component: Int){
