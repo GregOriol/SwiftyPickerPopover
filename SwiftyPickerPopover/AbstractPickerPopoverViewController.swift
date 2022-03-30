@@ -38,6 +38,7 @@ open class AbstractPickerPopoverViewController: UIViewController {
 }
 
 extension AbstractPickerPopoverViewController: UIPopoverPresentationControllerDelegate {
+
     /// Popover appears on iPhone
     open func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
@@ -47,6 +48,7 @@ extension AbstractPickerPopoverViewController: UIPopoverPresentationControllerDe
         guard let allowed = anyPopover.isAllowedOutsideTappingDismissing else {
             return true
         }
+
         return allowed
     }
 }

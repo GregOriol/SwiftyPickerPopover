@@ -24,6 +24,7 @@ public class CountdownPickerPopoverViewController: AbstractPickerPopoverViewCont
 
     override func reflectPopoverProperties(){
         super.reflectPopoverProperties()
+
         if #available(iOS 11.0, *) { }
         else {
             navigationItem.leftBarButtonItem = nil

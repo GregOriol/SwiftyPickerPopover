@@ -179,6 +179,7 @@ extension DurationPickerPopoverViewController: UIPickerViewDataSource {
 }
 
 extension DurationPickerPopoverViewController: UIPickerViewDelegate {
+
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 //        let value: String = "\(row)"
         let adjustedValue: String = "\(row)"

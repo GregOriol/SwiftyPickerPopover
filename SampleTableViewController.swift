@@ -13,15 +13,19 @@ class SampleTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "textFieldCell")
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+}
 
-    // MARK: - Table view data source
+extension SampleTableViewController: UITableViewDataSource {
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -39,4 +43,3 @@ class SampleTableViewController: UITableViewController {
         return cell
     }
 }
-

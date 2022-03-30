@@ -55,7 +55,7 @@ open class AbstractPopover: NSObject {
         storyboardName = String(describing: type(of: self))
     }
 
-    // MARK: - Set permitted arr setter
+    // MARK: - Setters
 
     /// Set permitted arrow directions
     ///

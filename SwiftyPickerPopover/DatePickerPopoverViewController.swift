@@ -19,6 +19,7 @@ public class DatePickerPopoverViewController: AbstractPickerPopoverViewControlle
 
     override func reflectPopoverProperties(){
         super.reflectPopoverProperties()
+
         if #available(iOS 11.0, *) { }
         else {
             navigationItem.leftBarButtonItem = nil

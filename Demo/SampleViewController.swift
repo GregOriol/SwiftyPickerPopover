@@ -9,10 +9,12 @@
 import UIKit
 import SwiftyPickerPopover
 
-class SampleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SampleViewController: UIViewController {
 
     // for keeping selectedRow
     private var selectedRow: Int = 0
+
+    // MARK: - Actions
 
     @IBAction func tappedStringPickerButton(_ sender: UIButton) {
         /// Replace a string with the string to be display.
@@ -199,34 +201,12 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
         .appear(originView: sender, baseViewController: self)
     }
 
-    //CollectionView
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+}
 
-        let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        let label = theCell.contentView.viewWithTag(1) as! UILabel
-        label.text = (indexPath as NSIndexPath).row.description
+// MARK: - UICollectionViewDataSource
 
-        return theCell
-    }
+extension SampleViewController: UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-
-        //StringPickerPopover appears from the cell of collectionView.
-        let p = StringPickerPopover(title: "Cell "+(indexPath as NSIndexPath).row.description, choices: ["value 1","value 2","value 3"])
-        .setSelectedRow(1)
-        .setValueChange(action: { _, _, selectedString in
-            print("current string: \(selectedString)")
-        })
-        .setDoneButton(title:"👌", action: { (popover, selectedRow, selectedString) in
-            print("done row \(selectedRow) \(selectedString)")
-        })
-        .setCancelButton(title:"👎", action: { _,_,_ in print("cancel")} )
-
-        p.appear(originView: theCell, baseViewWhenOriginViewHasNoSuperview: collectionView, baseViewController: self)
-
-    }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -234,5 +214,35 @@ class SampleViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let label = theCell.contentView.viewWithTag(1) as! UILabel
+        label.text = (indexPath as NSIndexPath).row.description
+
+        return theCell
+    }
 }
 
+// MARK: - UICollectionViewDelegate
+
+extension SampleViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+
+        //StringPickerPopover appears from the cell of collectionView.
+        let p = StringPickerPopover(title: "Cell "+(indexPath as NSIndexPath).row.description, choices: ["value 1","value 2","value 3"])
+            .setSelectedRow(1)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            .setDoneButton(title:"👌", action: { (popover, selectedRow, selectedString) in
+                print("done row \(selectedRow) \(selectedString)")
+            })
+            .setCancelButton(title:"👎", action: { _,_,_ in print("cancel")} )
+
+        p.appear(originView: theCell, baseViewWhenOriginViewHasNoSuperview: collectionView, baseViewController: self)
+    }
+}

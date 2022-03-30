@@ -30,6 +30,7 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+
         picker.delegate = self
         picker.dataSource = self
     }
@@ -115,7 +116,9 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
 }
 
 // MARK: - UIPickerViewDataSource
+
 extension ColumnStringPickerPopoverViewController: UIPickerViewDataSource {
+
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return popover.choices.count
     }
@@ -148,7 +151,10 @@ extension ColumnStringPickerPopoverViewController: UIPickerViewDataSource {
     }
 }
 
+// MARK: - UIPickerViewDelegate
+
 extension ColumnStringPickerPopoverViewController: UIPickerViewDelegate {
+
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let value: String = popover.choices[component][row]
         let adjustedValue: String = popover.displayStringFor?(value) ?? value

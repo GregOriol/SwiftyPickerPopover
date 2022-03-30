@@ -10,7 +10,9 @@ import UIKit
 import SwiftyPickerPopover
 
 class TextFieldCell: UITableViewCell {
+
     @IBOutlet private weak var textField: UITextField!
+
     weak var delegate: UITableViewController!
 
     func updateView(text: String) {
@@ -20,6 +22,6 @@ class TextFieldCell: UITableViewCell {
 
     @IBAction func onEditingDidBegin(_ sender: UITextField) {
         DatePickerPopover(title: "From Cell")
-        .appear(originView: sender, baseViewController: delegate)
+            .appear(originView: sender, baseViewController: delegate)
     }
 }

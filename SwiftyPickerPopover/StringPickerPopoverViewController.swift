@@ -25,12 +25,14 @@ public class StringPickerPopoverViewController: AbstractPickerPopoverViewControl
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+
         picker.delegate = self
     }
 
     /// Make the popover properties reflect on this view controller
     override func reflectPopoverProperties(){
         super.reflectPopoverProperties()
+
         // Select row if needed
         picker?.selectRow(popover.selectedRow, inComponent: 0, animated: true)
 
