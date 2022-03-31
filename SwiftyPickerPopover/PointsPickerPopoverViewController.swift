@@ -71,8 +71,9 @@ public class PointsPickerPopoverViewController: AbstractPickerPopoverViewControl
         clearButton.tintColor = popover.clearButton.color ?? popover.tintColor
         clearButton.isHidden = popover.clearButton.action == nil
 
+        // Selecting approriate tab
         let absValue = abs(popover.value)
-        if absValue < 9 {
+        if absValue <= 99 {
             segmentedControl.selectedSegmentIndex = 0
         } else if absValue >= 10 && absValue <= 990 && absValue % 10 == 0 {
             segmentedControl.selectedSegmentIndex = 1
@@ -82,6 +83,11 @@ public class PointsPickerPopoverViewController: AbstractPickerPopoverViewControl
             segmentedControl.selectedSegmentIndex = 3
         } else {
             segmentedControl.selectedSegmentIndex = 4
+        }
+
+        // Considering that "+" is the most useful sign
+        if popover.value == 0 {
+            signSegmentedControl.selectedSegmentIndex = 1
         }
 
         updateDisplay()
@@ -183,14 +189,14 @@ public class PointsPickerPopoverViewController: AbstractPickerPopoverViewControl
 
         if popover.value < 0 {
             signSegmentedControl.selectedSegmentIndex = 0
-        } else {
+        } else if popover.value > 0 {
             signSegmentedControl.selectedSegmentIndex = 1
-        }
+        }// else == 0, leaving sign as it is
 
         pickerView.reloadAllComponents()
 
         let absValue = abs(popover.value)
-        if segmentedControl.selectedSegmentIndex == 0 && absValue < 9 {
+        if segmentedControl.selectedSegmentIndex == 0 && absValue <= 99 {
             pickerView.selectRow(absValue, inComponent: 0, animated: false)
         } else if segmentedControl.selectedSegmentIndex == 1 && absValue >= 10 && absValue <= 990 && absValue % 10 == 0 {
             pickerView.selectRow(Int(absValue / 10), inComponent: 0, animated: false)
