@@ -37,94 +37,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-zh-SEw">
-                                <rect key="frame" x="20" y="32" width="335" height="647"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VNB-Ig-A4p">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoZ-u5-pX4">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="647"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oe-Wj-DQV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="593"/>
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Ws3-av-8fq">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="647"/>
-                                            </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="squ-4x-bgw">
-                                                <rect key="frame" x="63" y="0.0" width="43.5" height="647"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-zh-SEw">
+                                                <rect key="frame" x="10" y="-12" width="355" height="617"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoZ-u5-pX4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="617"/>
+                                                        <subviews>
+                                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Ws3-av-8fq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="617"/>
+                                                            </pickerView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="squ-4x-bgw">
+                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="617"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="squ-4x-bgw" secondAttribute="trailing" id="0q1-8W-J7Y"/>
+                                                            <constraint firstAttribute="bottom" secondItem="squ-4x-bgw" secondAttribute="bottom" id="Dqg-PN-eJv"/>
+                                                            <constraint firstItem="Ws3-av-8fq" firstAttribute="top" secondItem="LoZ-u5-pX4" secondAttribute="top" id="E8o-It-wke"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Ws3-av-8fq" secondAttribute="bottom" id="H77-MP-OS9"/>
+                                                            <constraint firstItem="squ-4x-bgw" firstAttribute="leading" secondItem="Ws3-av-8fq" secondAttribute="trailing" constant="-2" id="L4N-3o-B2r"/>
+                                                            <constraint firstItem="Ws3-av-8fq" firstAttribute="leading" secondItem="LoZ-u5-pX4" secondAttribute="leading" id="Zst-Ih-LhS"/>
+                                                            <constraint firstItem="squ-4x-bgw" firstAttribute="top" secondItem="LoZ-u5-pX4" secondAttribute="top" id="gFv-xd-e5X"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo6-cc-k64">
+                                                        <rect key="frame" x="121" y="0.0" width="113" height="617"/>
+                                                        <subviews>
+                                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Mrr-rl-Z9T">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="617"/>
+                                                            </pickerView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg9-0m-Ene">
+                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="617"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Mrr-rl-Z9T" firstAttribute="top" secondItem="vo6-cc-k64" secondAttribute="top" id="dHh-eR-1cP"/>
+                                                            <constraint firstItem="Mg9-0m-Ene" firstAttribute="top" secondItem="vo6-cc-k64" secondAttribute="top" id="gN0-cA-0Dx"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Mg9-0m-Ene" secondAttribute="trailing" id="n2U-aF-AQy"/>
+                                                            <constraint firstItem="Mg9-0m-Ene" firstAttribute="leading" secondItem="Mrr-rl-Z9T" secondAttribute="trailing" constant="-2" id="tM0-gz-tXE"/>
+                                                            <constraint firstItem="Mrr-rl-Z9T" firstAttribute="leading" secondItem="vo6-cc-k64" secondAttribute="leading" id="ulB-o5-l0d"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Mrr-rl-Z9T" secondAttribute="bottom" id="yqy-jo-z2e"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Mg9-0m-Ene" secondAttribute="bottom" id="zKm-gS-NLx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-nB-vNf">
+                                                        <rect key="frame" x="242" y="0.0" width="113" height="617"/>
+                                                        <subviews>
+                                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ooY-uD-jx5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="617"/>
+                                                            </pickerView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEO-JX-Drr">
+                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="617"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="nEO-JX-Drr" secondAttribute="trailing" id="2dY-xY-WNf"/>
+                                                            <constraint firstItem="nEO-JX-Drr" firstAttribute="top" secondItem="tdQ-nB-vNf" secondAttribute="top" id="4M0-nE-XtN"/>
+                                                            <constraint firstAttribute="bottom" secondItem="nEO-JX-Drr" secondAttribute="bottom" id="Wr7-pT-mSh"/>
+                                                            <constraint firstItem="ooY-uD-jx5" firstAttribute="top" secondItem="tdQ-nB-vNf" secondAttribute="top" id="Zam-nQ-nJg"/>
+                                                            <constraint firstItem="ooY-uD-jx5" firstAttribute="leading" secondItem="tdQ-nB-vNf" secondAttribute="leading" id="bb3-ig-soI"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ooY-uD-jx5" secondAttribute="bottom" id="eTT-bs-biY"/>
+                                                            <constraint firstItem="nEO-JX-Drr" firstAttribute="leading" secondItem="ooY-uD-jx5" secondAttribute="trailing" constant="-2" id="mNl-Pf-pfD"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="LoZ-u5-pX4" firstAttribute="width" secondItem="vo6-cc-k64" secondAttribute="width" id="Hxv-ZA-4KV"/>
+                                                    <constraint firstItem="vo6-cc-k64" firstAttribute="width" secondItem="tdQ-nB-vNf" secondAttribute="width" id="RcZ-Ed-ygT"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="squ-4x-bgw" secondAttribute="trailing" id="0q1-8W-J7Y"/>
-                                            <constraint firstAttribute="bottom" secondItem="squ-4x-bgw" secondAttribute="bottom" id="Dqg-PN-eJv"/>
-                                            <constraint firstItem="Ws3-av-8fq" firstAttribute="top" secondItem="LoZ-u5-pX4" secondAttribute="top" id="E8o-It-wke"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ws3-av-8fq" secondAttribute="bottom" id="H77-MP-OS9"/>
-                                            <constraint firstItem="squ-4x-bgw" firstAttribute="leading" secondItem="Ws3-av-8fq" secondAttribute="trailing" constant="-2" id="L4N-3o-B2r"/>
-                                            <constraint firstItem="Ws3-av-8fq" firstAttribute="leading" secondItem="LoZ-u5-pX4" secondAttribute="leading" id="Zst-Ih-LhS"/>
-                                            <constraint firstItem="squ-4x-bgw" firstAttribute="top" secondItem="LoZ-u5-pX4" secondAttribute="top" id="gFv-xd-e5X"/>
+                                            <constraint firstAttribute="bottom" secondItem="jUB-zh-SEw" secondAttribute="bottom" constant="-12" id="IM4-M7-fcb"/>
+                                            <constraint firstAttribute="trailing" secondItem="jUB-zh-SEw" secondAttribute="trailing" constant="10" id="VQi-LT-UV7"/>
+                                            <constraint firstItem="jUB-zh-SEw" firstAttribute="leading" secondItem="0oe-Wj-DQV" secondAttribute="leading" constant="10" id="Voo-la-3bL"/>
+                                            <constraint firstItem="jUB-zh-SEw" firstAttribute="top" secondItem="0oe-Wj-DQV" secondAttribute="top" constant="-12" id="cRi-Ar-rR9"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo6-cc-k64">
-                                        <rect key="frame" x="114.5" y="0.0" width="106" height="647"/>
-                                        <subviews>
-                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Mrr-rl-Z9T">
-                                                <rect key="frame" x="0.0" y="0.0" width="64.5" height="647"/>
-                                            </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg9-0m-Ene">
-                                                <rect key="frame" x="62.5" y="0.0" width="43.5" height="647"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-PI-PlG">
+                                        <rect key="frame" x="0.0" y="593" width="375" height="30"/>
                                         <constraints>
-                                            <constraint firstItem="Mrr-rl-Z9T" firstAttribute="top" secondItem="vo6-cc-k64" secondAttribute="top" id="dHh-eR-1cP"/>
-                                            <constraint firstItem="Mg9-0m-Ene" firstAttribute="top" secondItem="vo6-cc-k64" secondAttribute="top" id="gN0-cA-0Dx"/>
-                                            <constraint firstAttribute="trailing" secondItem="Mg9-0m-Ene" secondAttribute="trailing" id="n2U-aF-AQy"/>
-                                            <constraint firstItem="Mg9-0m-Ene" firstAttribute="leading" secondItem="Mrr-rl-Z9T" secondAttribute="trailing" constant="-2" id="tM0-gz-tXE"/>
-                                            <constraint firstItem="Mrr-rl-Z9T" firstAttribute="leading" secondItem="vo6-cc-k64" secondAttribute="leading" id="ulB-o5-l0d"/>
-                                            <constraint firstAttribute="bottom" secondItem="Mrr-rl-Z9T" secondAttribute="bottom" id="yqy-jo-z2e"/>
-                                            <constraint firstAttribute="bottom" secondItem="Mg9-0m-Ene" secondAttribute="bottom" id="zKm-gS-NLx"/>
+                                            <constraint firstAttribute="height" constant="30" id="HXf-4b-u3u"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-nB-vNf">
-                                        <rect key="frame" x="228.5" y="0.0" width="106.5" height="647"/>
-                                        <subviews>
-                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ooY-uD-jx5">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="647"/>
-                                            </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEO-JX-Drr">
-                                                <rect key="frame" x="63" y="0.0" width="43.5" height="647"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="nEO-JX-Drr" secondAttribute="trailing" id="2dY-xY-WNf"/>
-                                            <constraint firstItem="nEO-JX-Drr" firstAttribute="top" secondItem="tdQ-nB-vNf" secondAttribute="top" id="4M0-nE-XtN"/>
-                                            <constraint firstAttribute="bottom" secondItem="nEO-JX-Drr" secondAttribute="bottom" id="Wr7-pT-mSh"/>
-                                            <constraint firstItem="ooY-uD-jx5" firstAttribute="top" secondItem="tdQ-nB-vNf" secondAttribute="top" id="Zam-nQ-nJg"/>
-                                            <constraint firstItem="ooY-uD-jx5" firstAttribute="leading" secondItem="tdQ-nB-vNf" secondAttribute="leading" id="bb3-ig-soI"/>
-                                            <constraint firstAttribute="bottom" secondItem="ooY-uD-jx5" secondAttribute="bottom" id="eTT-bs-biY"/>
-                                            <constraint firstItem="nEO-JX-Drr" firstAttribute="leading" secondItem="ooY-uD-jx5" secondAttribute="trailing" constant="-2" id="mNl-Pf-pfD"/>
-                                        </constraints>
-                                    </view>
+                                        <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="tappedClear:" destination="pEv-eJ-a7K" eventType="touchUpInside" id="7C8-Ad-zIH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="LoZ-u5-pX4" firstAttribute="width" secondItem="vo6-cc-k64" secondAttribute="width" id="Hxv-ZA-4KV"/>
-                                    <constraint firstItem="vo6-cc-k64" firstAttribute="width" secondItem="tdQ-nB-vNf" secondAttribute="width" id="RcZ-Ed-ygT"/>
-                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jUB-zh-SEw" firstAttribute="top" secondItem="dWL-4q-ZXZ" secondAttribute="bottom" constant="-12" id="5c3-Ln-NJy"/>
-                            <constraint firstAttribute="trailing" secondItem="jUB-zh-SEw" secondAttribute="trailing" constant="20" id="ars-Ba-C05"/>
-                            <constraint firstItem="jUB-zh-SEw" firstAttribute="leading" secondItem="cBE-9P-52d" secondAttribute="leading" constant="20" id="ckD-xG-Upj"/>
-                            <constraint firstItem="tOz-Gm-pij" firstAttribute="top" secondItem="jUB-zh-SEw" secondAttribute="bottom" constant="-12" id="jP0-8E-Y08"/>
+                            <constraint firstItem="VNB-Ig-A4p" firstAttribute="top" secondItem="dWL-4q-ZXZ" secondAttribute="bottom" id="2EG-gt-wFD"/>
+                            <constraint firstItem="VNB-Ig-A4p" firstAttribute="leading" secondItem="cBE-9P-52d" secondAttribute="leading" id="Nrk-7u-lFI"/>
+                            <constraint firstItem="tOz-Gm-pij" firstAttribute="top" secondItem="VNB-Ig-A4p" secondAttribute="bottom" id="ZQG-vK-K8R"/>
+                            <constraint firstAttribute="trailing" secondItem="VNB-Ig-A4p" secondAttribute="trailing" id="im0-Lg-Edc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="0qf-St-WhE">
@@ -143,6 +170,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="a1u-Fu-SLI" id="3Zc-w0-zd8"/>
+                        <outlet property="clearButton" destination="GoP-PI-PlG" id="UIV-cU-H2G"/>
                         <outlet property="doneButton" destination="NGv-xi-ME4" id="1p3-fa-ieC"/>
                         <outlet property="hoursLabel" destination="squ-4x-bgw" id="fbh-7I-KUW"/>
                         <outlet property="hoursPickerView" destination="Ws3-av-8fq" id="gXl-8W-aCJ"/>

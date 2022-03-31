@@ -25,6 +25,8 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
 
     @IBOutlet weak private var cancelButton: UIBarButtonItem!
     @IBOutlet weak private var doneButton: UIBarButtonItem!
+    @IBOutlet weak private var clearButton: UIButton!
+
     @IBOutlet fileprivate weak var hoursPickerView: UIPickerView!
     @IBOutlet fileprivate weak var hoursLabel: UILabel!
     @IBOutlet fileprivate weak var minutesPickerView: UIPickerView!
@@ -62,6 +64,13 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         doneButton.tintColor = popover.doneButton.color ?? popover.tintColor
         navigationItem.setRightBarButton(doneButton, animated: false)
 
+        clearButton.setTitle(popover.clearButton.title, for: .normal)
+        if let font = popover.clearButton.font {
+            clearButton.titleLabel?.font = font
+        }
+        clearButton.tintColor = popover.clearButton.color ?? popover.tintColor
+        clearButton.isHidden = popover.clearButton.action == nil
+
         hoursLabel.text = popover.labels.h
         minutesLabel.text = popover.labels.m
         secondsLabel.text = popover.labels.s
@@ -90,6 +99,13 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         tapped(button: popover.cancelButton)
     }
 
+    /// Action when tapping clear button
+    ///
+    /// - Parameter sender: Clear button
+    @IBAction func tappedClear(_ sender: UIButton? = nil) {
+        tapped(button: popover.clearButton)
+    }
+
     private func tapped(button: DurationPickerPopover.ButtonParameterType?) {
         let h = hoursPickerView.selectedRow(inComponent: 0)
         let m = minutesPickerView.selectedRow(inComponent: 0)
@@ -100,23 +116,6 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         popover.removeDimmedView()
         dismiss(animated: false)
     }
-
-//    @IBAction func tappedClear(_ sender: AnyObject? = nil) {
-//        // Select row 0 in each componet
-//        for componet in 0..<picker.numberOfComponents {
-//            picker.selectRow(0, inComponent: componet, animated: true)
-//        }
-//        enableClearButtonIfNeeded()
-//        popover.clearButton.action?(popover, popover.selectedRows, selectedValues())
-//        popover.redoDisappearAutomatically()
-//    }
-
-//    private func enableClearButtonIfNeeded() {
-//        guard !clearButton.isHidden else {
-//            return
-//        }
-//        clearButton.isEnabled = selectedValues().filter({ $0 != popover.kValueForCleared}).count > 0
-//    }
 
     /// Action to be executed after the popover disappears
     ///
@@ -217,7 +216,6 @@ extension DurationPickerPopoverViewController: UIPickerViewDelegate {
         let value = valueFromComponents((h: h, m: m, s: s))
 
         popover.value = value
-//        enableClearButtonIfNeeded()
         popover.valueChangeAction?(popover, (h: h, m: m, s: s), value)
         popover.redoDisappearAutomatically()
     }

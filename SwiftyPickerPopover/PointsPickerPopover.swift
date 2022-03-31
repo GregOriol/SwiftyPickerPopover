@@ -1,5 +1,5 @@
 //
-//  DurationPickerPopover.swift
+//  PointsPickerPopover.swift
 //  SwiftyPickerPopover
 //
 //  Created by Grégory ORIOL on 2022/03/29.
@@ -11,17 +11,17 @@
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-/// DurationPickerPopover has 3 UIPickerView separated by labels.
-public class DurationPickerPopover: AbstractPopover {
+/// PointsPickerPopover has 1 UIPickerView and +/- buttons as well as segment for 1/10/100/1000 and a UITextField.
+public class PointsPickerPopover: AbstractPopover {
 
     // MARK: Types
 
     /// Type of choice value
     public typealias ItemType = String
     /// Popover type
-    public typealias PopoverType = DurationPickerPopover
+    public typealias PopoverType = PointsPickerPopover
     /// Action type for buttons
-    public typealias ActionHandlerType = (PopoverType, (h: Int, m: Int, s: Int), Int) -> Void
+    public typealias ActionHandlerType = (PopoverType, Int) -> Void
     /// Button parameters type
     public typealias ButtonParameterType = (title: String, font: UIFont?, color: UIColor?, action: ActionHandlerType?)
     /// Type of the rule closure to convert from a raw value to the display string
