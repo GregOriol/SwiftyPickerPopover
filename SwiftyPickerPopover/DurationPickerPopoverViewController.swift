@@ -27,6 +27,8 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
     @IBOutlet weak private var doneButton: UIBarButtonItem!
     @IBOutlet weak private var clearButton: UIButton!
 
+    @IBOutlet fileprivate weak var signSegmentedControl: UISegmentedControl!
+    @IBOutlet fileprivate weak var signSegmentedControlContainerView: UIView!
     @IBOutlet fileprivate weak var hoursPickerView: UIPickerView!
     @IBOutlet fileprivate weak var hoursLabel: UILabel!
     @IBOutlet fileprivate weak var minutesPickerView: UIPickerView!
@@ -75,6 +77,13 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         minutesLabel.text = popover.labels.m
         secondsLabel.text = popover.labels.s
 
+        // Considering that "+" is the most useful sign
+        if popover.value < 0 {
+            signSegmentedControl.selectedSegmentIndex = 0
+        } else {
+            signSegmentedControl.selectedSegmentIndex = 1
+        }
+
         hoursPickerView.reloadAllComponents()
         minutesPickerView.reloadAllComponents()
         secondsPickerView.reloadAllComponents()
@@ -84,6 +93,8 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         minutesPickerView.selectRow(components.m, inComponent: 0, animated: false)
         secondsPickerView.selectRow(components.s, inComponent: 0, animated: false)
     }
+
+    // MARK: - Actions
 
     /// Action when tapping done button
     ///
@@ -110,7 +121,7 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         let h = hoursPickerView.selectedRow(inComponent: 0)
         let m = minutesPickerView.selectedRow(inComponent: 0)
         let s = secondsPickerView.selectedRow(inComponent: 0)
-        let value = valueFromComponents((h: h, m: m, s: s))
+        let value = valueFromComponents((h: h, m: m, s: s)) * ((signSegmentedControl.selectedSegmentIndex == 0) ? -1 : 1)
 
         button?.action?(popover, (h: h, m: m, s: s), value)
         popover.removeDimmedView()
@@ -124,9 +135,21 @@ public class DurationPickerPopoverViewController: AbstractPickerPopoverViewContr
         tappedCancel()
     }
 
+    @IBAction func signSegmentedControlValueChanged(sender: UISegmentedControl) {
+        let h = hoursPickerView.selectedRow(inComponent: 0)
+        let m = minutesPickerView.selectedRow(inComponent: 0)
+        let s = secondsPickerView.selectedRow(inComponent: 0)
+        let value = valueFromComponents((h: h, m: m, s: s)) * ((signSegmentedControl.selectedSegmentIndex == 0) ? -1 : 1)
+
+        popover.value = value
+        popover.valueChangeAction?(popover, (h: h, m: m, s: s), value)
+        popover.redoDisappearAutomatically()
+    }
+
     // MARK: - Helpers
 
     fileprivate func valueToComponents(_ value: Int) -> (h: Int, m: Int, s: Int) {
+        let value = abs(value)
         return (h: value / 3600, m: (value % 3600) / 60, s: (value % 3600) % 60)
     }
 
@@ -213,7 +236,7 @@ extension DurationPickerPopoverViewController: UIPickerViewDelegate {
         let h = hoursPickerView.selectedRow(inComponent: 0)
         let m = minutesPickerView.selectedRow(inComponent: 0)
         let s = secondsPickerView.selectedRow(inComponent: 0)
-        let value = valueFromComponents((h: h, m: m, s: s))
+        let value = valueFromComponents((h: h, m: m, s: s)) * ((signSegmentedControl.selectedSegmentIndex == 0) ? -1 : 1)
 
         popover.value = value
         popover.valueChangeAction?(popover, (h: h, m: m, s: s), value)

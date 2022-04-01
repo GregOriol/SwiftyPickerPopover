@@ -40,20 +40,45 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VNB-Ig-A4p">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osL-uW-tnX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CZg-Ez-g95">
+                                                <rect key="frame" x="20" y="10" width="345" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Gax-Rk-kfy"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="-"/>
+                                                    <segment title="+"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="signSegmentedControlValueChangedWithSender:" destination="pEv-eJ-a7K" eventType="valueChanged" id="l6I-eN-A3Q"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="CZg-Ez-g95" secondAttribute="bottom" constant="10" id="F91-40-yvA"/>
+                                            <constraint firstAttribute="trailing" secondItem="CZg-Ez-g95" secondAttribute="trailing" constant="10" id="YaA-Lv-uu0"/>
+                                            <constraint firstItem="CZg-Ez-g95" firstAttribute="top" secondItem="osL-uW-tnX" secondAttribute="top" constant="10" id="cyL-zb-wL7"/>
+                                            <constraint firstItem="CZg-Ez-g95" firstAttribute="leading" secondItem="osL-uW-tnX" secondAttribute="leading" constant="20" id="wqt-3B-3Qz"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oe-Wj-DQV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="593"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="543"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-zh-SEw">
-                                                <rect key="frame" x="10" y="-12" width="355" height="617"/>
+                                                <rect key="frame" x="10" y="-12" width="355" height="567"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoZ-u5-pX4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="617"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="567"/>
                                                         <subviews>
                                                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Ws3-av-8fq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="617"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="567"/>
                                                             </pickerView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="squ-4x-bgw">
-                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="617"/>
+                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="567"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -71,13 +96,13 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo6-cc-k64">
-                                                        <rect key="frame" x="121" y="0.0" width="113" height="617"/>
+                                                        <rect key="frame" x="121" y="0.0" width="113" height="567"/>
                                                         <subviews>
                                                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Mrr-rl-Z9T">
-                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="617"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="567"/>
                                                             </pickerView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg9-0m-Ene">
-                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="617"/>
+                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="567"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -95,13 +120,13 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-nB-vNf">
-                                                        <rect key="frame" x="242" y="0.0" width="113" height="617"/>
+                                                        <rect key="frame" x="242" y="0.0" width="113" height="567"/>
                                                         <subviews>
                                                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ooY-uD-jx5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="617"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="567"/>
                                                             </pickerView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEO-JX-Drr">
-                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="617"/>
+                                                                <rect key="frame" x="69.5" y="0.0" width="43.5" height="567"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -178,6 +203,8 @@
                         <outlet property="minutesPickerView" destination="Mrr-rl-Z9T" id="uR1-XS-ftn"/>
                         <outlet property="secondsLabel" destination="nEO-JX-Drr" id="8v5-Xn-PlF"/>
                         <outlet property="secondsPickerView" destination="ooY-uD-jx5" id="kQe-Lu-1x6"/>
+                        <outlet property="signSegmentedControl" destination="CZg-Ez-g95" id="ewR-cI-RGa"/>
+                        <outlet property="signSegmentedControlContainerView" destination="osL-uW-tnX" id="oKe-n1-bAm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsj-nA-6cW" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -32,10 +32,12 @@ public class DurationPickerPopover: AbstractPopover {
 
     // MARK: - Properties
 
-    /// Labels
+    /// Labels for h/m/s
     var labels = (h: "h", m: "m", s: "s")
     /// Value
     var value: Int = 0
+    /// Shows a -/+ sign to make negative values
+    var isNegativeAllowed: Bool = false
 
     ///Font
 //    private(set) var fonts: [UIFont?]?
@@ -66,13 +68,14 @@ public class DurationPickerPopover: AbstractPopover {
     ///   - choices: Options for picker.
     ///   - selectedRow: Selected rows of picker.
     ///   - columnPercent: Rate of each column of picker
-    public init(title: String?, labels: (h: String, m: String, s: String) = (h: "h", m: "m", s: "s"), value: Int){
+    public init(title: String?, labels: (h: String, m: String, s: String) = (h: "h", m: "m", s: "s"), value: Int, isNegativeAllowed: Bool = false) {
         super.init()
 
         // Set parameters
         self.title = title
         self.labels = labels
         self.value = value
+        self.isNegativeAllowed = isNegativeAllowed
     }
 
     // MARK: - Propery setter
