@@ -11,6 +11,8 @@
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import UIKit
+
 /// PointsPickerPopover has 1 UIPickerView and +/- buttons as well as segment for 1/10/100/1000 and a UITextField.
 public class PointsPickerPopover: AbstractPopover {
 

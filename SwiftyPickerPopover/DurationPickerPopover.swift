@@ -11,6 +11,8 @@
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import UIKit
+
 /// DurationPickerPopover has 3 UIPickerView separated by labels.
 public class DurationPickerPopover: AbstractPopover {
 

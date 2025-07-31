@@ -12,6 +12,8 @@
 */
 //  Modified by Yuta Hoshino on 2017/07/24.
 
+import UIKit
+
 /// ColumnStringPickerPopover has an UIPickerView of multiple columns.
 public class ColumnStringPickerPopover: AbstractPopover {
 
