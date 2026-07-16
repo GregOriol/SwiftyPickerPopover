@@ -28,9 +28,8 @@ let package = Package(
                 .process("ja.lproj"),
                 .process("AbstractPopover.storyboard"),
                 .process("ColumnStringPickerPopover.storyboard"),
-                .process("CountdownPickerPopover.storyboard"),
-                .process("DatePickerPopover.storyboard"),
-                .process("StringPickerPopover.storyboard"),
+                .process("DurationPickerPopover.storyboard"),
+                .process("PointsPickerPopover.storyboard"),
             ]),
     ],
     swiftLanguageVersions: [.v5]
