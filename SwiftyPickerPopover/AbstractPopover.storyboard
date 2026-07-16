@@ -28,7 +28,7 @@
         <!--Title-->
         <scene sceneID="l0I-9A-a0Y">
             <objects>
-                <viewController id="t31-zV-uJb" customClass="AbstractPickerPopoverViewController" customModule="SwiftyPickerPopover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="t31-zV-uJb" customClass="AbstractPickerPopoverViewController" customModule="SwiftyPickerPopover" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="omr-ql-WLY"/>
                         <viewControllerLayoutGuide type="bottom" id="xDZ-hv-TxZ"/>

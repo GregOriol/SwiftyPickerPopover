@@ -29,7 +29,7 @@
         <!--Title-->
         <scene sceneID="p8l-1a-Ifu">
             <objects>
-                <viewController id="pEv-eJ-a7K" customClass="StringPickerPopoverViewController" customModule="SwiftyPickerPopover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pEv-eJ-a7K" customClass="StringPickerPopoverViewController" customModule="SwiftyPickerPopover" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dWL-4q-ZXZ"/>
                         <viewControllerLayoutGuide type="bottom" id="tOz-Gm-pij"/>

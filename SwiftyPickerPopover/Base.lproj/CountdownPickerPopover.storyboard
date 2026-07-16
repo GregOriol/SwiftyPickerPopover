@@ -28,7 +28,7 @@
         <!--title-->
         <scene sceneID="rjb-gs-enU">
             <objects>
-                <viewController id="erI-yJ-JEk" customClass="CountdownPickerPopoverViewController" customModule="SwiftyPickerPopover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="erI-yJ-JEk" customClass="CountdownPickerPopoverViewController" customModule="SwiftyPickerPopover" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cbG-vC-cwF"/>
                         <viewControllerLayoutGuide type="bottom" id="KrY-U2-tGZ"/>
