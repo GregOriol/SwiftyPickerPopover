@@ -256,7 +256,7 @@ open class AbstractPopover: NSObject {
         if let _ = Bundle.main.path(forResource: storyboardName, ofType: "storyboardc"){
             bundle = Bundle.main
         } else {
-            bundle = Bundle(for: AbstractPopover.self)
+            bundle = Bundle.module
         }
 
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
