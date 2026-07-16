@@ -24,7 +24,6 @@ let package = Package(
             exclude: ["Info.plist"],
             resources: [
                 .process("Base.lproj"),
-                .process("en.lproj"),
                 .process("ja.lproj"),
                 .process("AbstractPopover.storyboard"),
                 .process("ColumnStringPickerPopover.storyboard"),
